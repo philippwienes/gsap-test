@@ -20,6 +20,8 @@ h1 .invis {
   height: 1em;
 }
 h1 div {
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
   margin: 0;
   padding: 0;
   width: 100vw;

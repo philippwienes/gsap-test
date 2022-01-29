@@ -4,6 +4,8 @@ let rows = document.querySelectorAll("h1 div");
 
 rows.forEach(function (row,i) {
 
+  let child = row.querySelector("span");
+
   let rowTL = gsap.timeline({
     scrollTrigger: {
       trigger: row,
@@ -15,6 +17,7 @@ rows.forEach(function (row,i) {
       end: "+=100%",
     }
   })
-  .fromTo(row, {rotateX:'45deg'}, {rotateX:'0'})
-
+  .fromTo(child, {y:550}, {y:0})
+  .fromTo(child, {rotateX:'85deg'}, {rotateX:'0'}, '<80%')
+  .to(child, {opacity:0})
 });

@@ -14,7 +14,7 @@ rows.forEach(function (row,i) {
       pinSpacing: false,
       pin: true,
       start: 'top top',
-      end: "+=100%",
+      end: "+=400%",
     }
   })
   .fromTo(child, {y:550}, {y:0})

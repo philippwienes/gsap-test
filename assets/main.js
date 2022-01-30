@@ -1,5 +1,6 @@
 let rows = document.querySelectorAll("h1 div");
-let totalDuration = 3000;
+let main = document.querySelector("main");
+let totalDuration = main.dataset.animationduration;
 
 const tl = gsap.timeline({
   scrollTrigger: { 
@@ -28,7 +29,6 @@ rows.forEach(function (row,i) {
     position: 'fixed',
     opacity: 0,
   });
-
 
   tl.to(row, {opacity:1, duration: myDur / animationSteps}, myStartTime)
   if(imageControl == "zoomInAndOut"){

@@ -1,6 +1,7 @@
 let rows = document.querySelectorAll("h1 div");
 let main = document.querySelector("main");
 let totalDuration = main.dataset.animationduration;
+if(totalDuration <= main.offsetHeight) totalDuration = main.offsetHeight;
 
 const tl = gsap.timeline({
   scrollTrigger: { 

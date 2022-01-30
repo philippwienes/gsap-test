@@ -6,38 +6,50 @@ body {
   background-color: black;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-h1 {
-  color: white;
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  font-family: "arial";
-  height: 100vh;
+figure {
+  width: 100%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+}
+figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-size: 2200%;
+  font-family: "arial";
+  height: 100vh;
 }
 h1 .invis {
   height: 1em;
 }
 h1 div {
-  -webkit-transform-origin: center top;
-          transform-origin: center top;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
   margin: 0;
   padding: 0;
   width: 100vw;
+  height: 100vh;
   top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,4 +60,10 @@ h1 div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.intro {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }

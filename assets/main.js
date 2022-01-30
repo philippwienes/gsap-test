@@ -19,7 +19,7 @@ end: "+=" + singleDuration,
       markers:true,
       pinSpacing: false,
       pin: true,
-      start: 'top -=100%',
+      start: 'top top',
       end: "+=200%",
     }
   })

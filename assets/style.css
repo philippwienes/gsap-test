@@ -9,6 +9,28 @@ body {
   overflow-x: hidden;
 }
 
+figure {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
 h1 {
   color: white;
   margin: 0;
@@ -26,7 +48,6 @@ h1 div {
   margin: 0;
   padding: 0;
   width: 100vw;
-  margin-bottom: 100vh;
   height: 100vh;
   top: 0;
   display: -webkit-box;
@@ -38,4 +59,11 @@ h1 div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.has-js h1 div {
+  margin-bottom: 200vh;
+}
+.has-js .long-duration {
+  margin-bottom: 400vh;
 }

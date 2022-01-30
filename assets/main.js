@@ -1,47 +1,42 @@
 let rows = document.querySelectorAll("h1 div");
-let totalDuration = 300;
-let longDuration = 600;
+let totalDuration = 3000;
 
-document.body.classList.add('has-js');
+const tl = gsap.timeline({
+  scrollTrigger: { 
+    trigger: 'img',
+    scrub: .9,
+    markers: true,
+    pinSpacing: false,
+    pin: true,
+    start: 'top top',
+    end: "+=" + totalDuration + "%"
+  }
+});
 
 rows.forEach(function (row,i) {
 
-let child = row.querySelector("span");
+  const myStartTime = row.dataset.startpercent/100 * totalDuration;
+  const myDur = (row.dataset.endpercent - row.dataset.startpercent)/100 * totalDuration;
+  const imageControl = row.dataset.controlimage;
+  let animationSteps = 2;
 
-  i === 3 ? totalDuration = longDuration : totalDuration = 300;
+  if(imageControl){
+    animationSteps = 4;
+  }
 
-  let rowTL = gsap.timeline({
-    scrollTrigger: {
-      trigger: row,
-      scrub: .9,
-      pinSpacing: false,
-      pin: true,
-      start: 'top top',
-      end: "+=" + totalDuration + '%',
-    }
-  })
-  .fromTo(child, {y:550}, {y:0})
-  .fromTo(child, {rotateX:'85deg'}, {rotateX:'0'}, '<80%')
-  .to(child, {opacity:0})
+  gsap.set(row, {
+    position: 'fixed',
+    opacity: 0,
+  });
+
+
+  tl.to(row, {opacity:1, duration: myDur / animationSteps}, myStartTime)
+  if(imageControl == "zoomInAndOut"){
+    tl.fromTo('img',{scale:1}, {scale:2, duration: myDur / animationSteps}, '<')
+  }
+  tl.to(row, {opacity:0, duration: myDur / animationSteps})
+  if(imageControl == "zoomInAndOut"){
+    tl.to('img', {scale:1, duration: myDur / animationSteps}) 
+  }
 });
-
-   
-const imageTimeline = gsap.timeline()
-
-imageTimeline.fromTo('img', { opacity: 1 }, { opacity: 0.5, duration: 1 })
-.to('img', { scale: 2, opacity: 1, duration: 1 }, '+=5')
-.to('img', { scale: 1, opacity: 0.5, duration: 1 }, '+=1')
-.to('img', { opacity: 0, duration: 7 }, '+=2')
-
-
-ScrollTrigger.create({
-  trigger: 'img',
-  scrub: .9,
-  markers:true,
-  pinSpacing: false,
-  pin: true,
-  start: 'top top',
-  end: "+=" + ((totalDuration * rows.length) + longDuration) + "%",
-  animation: imageTimeline
-})
 

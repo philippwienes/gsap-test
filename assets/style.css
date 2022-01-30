@@ -17,6 +17,7 @@ figure {
   display: flex;
   margin: 0;
   padding: 0;
+  z-index: -1;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -61,9 +62,8 @@ h1 div {
           align-items: center;
 }
 
-.has-js h1 div {
-  margin-bottom: 200vh;
-}
-.has-js .long-duration {
-  margin-bottom: 400vh;
+.intro {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }

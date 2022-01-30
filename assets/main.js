@@ -14,31 +14,25 @@ const tl = gsap.timeline({
     end: "+=" + totalDuration + "%"
   }
 });
-
+const TLDur = tl.duration();
 rows.forEach(function (row,i) {
 
-  const myStartTime = row.dataset.startpercent/100 * totalDuration;
+  var myStartTime = row.dataset.startpercent/100 * totalDuration;
   const myDur = (row.dataset.endpercent - row.dataset.startpercent)/100 * totalDuration;
-  const imageControl = row.dataset.controlimage;
-  let animationSteps = 2;
+  var myOverlap = row.dataset.overlap;
 
-  if(imageControl){
-    animationSteps = 4;
-  }
+  //myOverlap ? myStartTime = 'start-' + (i - 1)  : '';
+
+  console.log(myStartTime);
+  console.log(myDur);
 
   gsap.set(row, {
     position: 'fixed',
-    scale:2,
     opacity: 0,
   });
+  tl.add("start-" + i)
+  tl.fromTo(row, {autoAlpha: 0}, {autoAlpha:1, duration: myDur / 2}, myStartTime)
+  tl.to(row, {opacity:0, duration: myDur / 2}, "start-" + i)
 
-  tl.to(row, {opacity:1,scale:1, duration: myDur / animationSteps}, myStartTime)
-  if(imageControl == "zoomInAndOut"){
-    tl.fromTo('img',{scale:1}, {scale:2, duration: myDur / animationSteps}, '<')
-  }
-  tl.to(row, {opacity:0, y:-50, duration: myDur / animationSteps})
-  if(imageControl == "zoomInAndOut"){
-    tl.to('img', {scale:1, duration: myDur / animationSteps}) 
-  }
 });
 

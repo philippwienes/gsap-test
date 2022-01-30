@@ -61,9 +61,3 @@ h1 div {
       -ms-flex-align: center;
           align-items: center;
 }
-
-.intro {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}

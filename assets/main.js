@@ -28,14 +28,15 @@ rows.forEach(function (row,i) {
 
   gsap.set(row, {
     position: 'fixed',
+    scale:2,
     opacity: 0,
   });
 
-  tl.to(row, {opacity:1, duration: myDur / animationSteps}, myStartTime)
+  tl.to(row, {opacity:1,scale:1, duration: myDur / animationSteps}, myStartTime)
   if(imageControl == "zoomInAndOut"){
     tl.fromTo('img',{scale:1}, {scale:2, duration: myDur / animationSteps}, '<')
   }
-  tl.to(row, {opacity:0, duration: myDur / animationSteps})
+  tl.to(row, {opacity:0, y:-50, duration: myDur / animationSteps})
   if(imageControl == "zoomInAndOut"){
     tl.to('img', {scale:1, duration: myDur / animationSteps}) 
   }
